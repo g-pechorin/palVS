@@ -1,5 +1,5 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Tell git to STFU and not to mess with my files
+* -binary
 
 # Custom for Visual Studio
 *.cs     diff=csharp
