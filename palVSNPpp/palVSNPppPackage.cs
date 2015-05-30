@@ -1,10 +1,12 @@
 ﻿/**
  * Peter LaValle
- * 
- * This is mostly the template for a plugin, I changed it to open NotePad++
- * 
+ *
+ * 2015-05-30
+ * - added THG abilities
+ * - added better icons
+ * - removed noisy comments
  * 2015-05-23
- *  
+ * - This is mostly the template for a plugin, I changed it to open NotePad++
  * 
  * 
 License:

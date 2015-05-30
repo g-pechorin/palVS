@@ -1,9 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
  * Peter LaValle
+ *
+ * 2015-05-30
+ * - added THG abilities
+ * - added better icons
+ * - removed noisy comments
  * 2015-05-23
- * 
- * This is mostly the template for a plugin, I changed it to open NotePad++
+ * - This is mostly the template for a plugin, I changed it to open NotePad++
 
 License:
    This software is in the public domain. Where that dedication is not
