@@ -47,54 +47,48 @@ namespace peterlavallecom.palVSNPpp
 	[Guid(GuidList.guidpalVSNPppPkgString)]
 	public sealed class palVSNPppPackage : Package
 	{
-		/// <summary>
-		/// Default constructor of the package.
-		/// Inside this method you can place any initialization code that does not require 
-		/// any Visual Studio service because at this point the package object is created but 
-		/// not sited yet inside Visual Studio environment. The place to do all the other 
-		/// initialization is the Initialize method.
-		/// </summary>
-		public palVSNPppPackage()
-		{
-			Debug.WriteLine(string.Format(CultureInfo.CurrentCulture, "Entering constructor for: {0}", this.ToString()));
-		}
-
-
-
-		/////////////////////////////////////////////////////////////////////////////
-		// Overridden Package Implementation
 		#region Package Members
 
-		/// <summary>
-		/// Initialization of the package; this method is called right after the package is sited, so this is the place
-		/// where you can put all the initialization code that rely on services provided by VisualStudio.
-		/// </summary>
 		protected override void Initialize()
 		{
 			Debug.WriteLine(string.Format(CultureInfo.CurrentCulture, "Entering Initialize() of: {0}", this.ToString()));
 			base.Initialize();
 
-			// Add our command handlers for menu (commands must exist in the .vsct file)
-			OleMenuCommandService mcs = GetService(typeof(IMenuCommandService)) as OleMenuCommandService;
-			if (null != mcs)
+			OleMenuCommandService oleMenuCommandService = GetService(typeof(IMenuCommandService)) as OleMenuCommandService;
+			if (null != oleMenuCommandService)
 			{
-				// Create the command for the menu item.
-				CommandID menuCommandID = new CommandID(GuidList.guidpalVSNPppCmdSet, (int)PkgCmdIDList.openInNPpp);
-				MenuCommand menuItem = new MenuCommand(MenuItemCallback, menuCommandID);
-				mcs.AddCommand(menuItem);
+				oleMenuCommandService.AddCommand(new MenuCommand(open_in_notepad_p_p__callback, new CommandID(GuidList.guidpalVSNPppCmdSet, (int)PkgCmdIDList.open_in_notepad_p_p)));
+				oleMenuCommandService.AddCommand(new MenuCommand(open_in_thg_workspace__callback, new CommandID(GuidList.guidpalVSNPppCmdSet, (int)PkgCmdIDList.open_in_thg_workspace)));
 			}
 		}
 		#endregion
 
-
-		private string _ProgramPath = null;
-		private string ProgramPath
+		private EnvDTE.Document ActiveDocument
 		{
 			get
 			{
-				if (null != _ProgramPath)
+				return ((EnvDTE80.DTE2)Package.GetGlobalService(typeof(EnvDTE._DTE))).ActiveDocument;
+			}
+		}
+
+		private void open_in_thg_workspace__callback(object sender, EventArgs e)
+		{			
+			// create a process
+			var process = new Process();
+			process.StartInfo.FileName = "thg";
+			process.StartInfo.WorkingDirectory = ActiveDocument.Path;
+
+			process.Start();
+		}
+
+		private string _NotePadPPPath = null;
+		private string NotePadPPPath
+		{
+			get
+			{
+				if (null != _NotePadPPPath)
 				{
-					return _ProgramPath;
+					return _NotePadPPPath;
 				}
 
 				string[] paths = new string[]{
@@ -119,28 +113,25 @@ namespace peterlavallecom.palVSNPpp
 						}
 
 						// found it
-						_ProgramPath = next;
+						_NotePadPPPath = next;
 						goto done;
 					}
 				}
 			done:
-				return _ProgramPath;
+				return _NotePadPPPath;
 			}
 		}
 
-		/// <summary>
-		/// This callback opens NotePad++
-		/// </summary>
-		private void MenuItemCallback(object sender, EventArgs e)
+		private void open_in_notepad_p_p__callback(object sender, EventArgs e)
 		{
 			// get the ActiveDocument
-			var activeDocument = ((EnvDTE80.DTE2)Package.GetGlobalService(typeof(EnvDTE._DTE))).ActiveDocument;
+			var activeDocument = ActiveDocument;
 
 			// create a process
 			var process = new Process();
 
 			// TODO : make this configurable
-			process.StartInfo.FileName = ProgramPath;
+			process.StartInfo.FileName = NotePadPPPath;
 
 			// if we found an active doucment - get notpad++ to open that
 			if (null != activeDocument)
