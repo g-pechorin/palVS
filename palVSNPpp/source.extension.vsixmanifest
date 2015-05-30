@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="bb7305ce-bd9e-4d98-90c5-e1b225df3774" Version="1.0.0.0" Language="en-US" Publisher="peterlavalle.com" />
+    <Identity Id="bb7305ce-bd9e-4d98-90c5-e1b225df3774" Version="1.1.0.0" Language="en-US" Publisher="peterlavalle.com" />
     <DisplayName>palVSNPpp</DisplayName>
     <Description>inane plugin to open NotePad++</Description>
   </Metadata>
