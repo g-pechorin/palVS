@@ -13,3 +13,21 @@ If you want to this project it you'll need the [Visual Studio SDK](https://www.m
 I'd also advocate that you use [EditorConfig](http://editorconfig.org/) with their [plugin for Visual Studio](https://github.com/editorconfig/editorconfig-visualstudio#readme)
 
 (... and you'll need to setup/provide your own `.snk` file)
+
+# License
+
+	palVS - Visual Studio Extensions
+    Copyright (C) 2015 Peter LaValle
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
