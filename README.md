@@ -9,8 +9,10 @@ So I've made [a V$ plugin](https://github.com/g-pechorin/palVS/raw/master/dist/p
 	* `CTRL` + `ALT` + `SHIFT` and `M`
 	* (You'll need `thg.exe` on your `PATH`)
 
-It was made with / used by [Visual Studio Community 2013](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx).
-If you want to this project it you'll need the [Visual Studio SDK](https://www.microsoft.com/en-gb/download/details.aspx?id=40758).
+It was made with / used by [Visual Studio Community 2013](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) and I use it with Ultimate at work.
+
+If you want to build this project it you'll need the [Visual Studio SDK](https://www.microsoft.com/en-gb/download/details.aspx?id=40758).
+
 I'd also advocate that you use [EditorConfig](http://editorconfig.org/) with their [plugin for Visual Studio](https://github.com/editorconfig/editorconfig-visualstudio#readme)
 
 (... and you'll need to setup/provide your own `.snk` file to build this)
