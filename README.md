@@ -2,6 +2,7 @@
 
 I got mad that I couldn't work with V$ in the ways I wanted to.
 So I've made [a V$ plugin](https://github.com/g-pechorin/palVS/raw/master/dist/palVSNPpp.vsix) to;
+
 	* open the active file in [NotePad++](https://notepad-plus-plus.org/)
 		* `CTRL` + `ALT` + `SHIFT` and `O`
 	* open the active file's project in [Tortoise HG](http://tortoisehg.bitbucket.org/)
